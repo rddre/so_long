@@ -6,7 +6,7 @@
 /*   By: asaracut <asaracut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 00:54:55 by asaracut          #+#    #+#             */
-/*   Updated: 2024/12/29 07:55:15 by asaracut         ###   ########.fr       */
+/*   Updated: 2024/12/30 06:10:36 by asaracut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,8 @@ int	main(int nbmap, char **map)
 	fd = open(map[1], O_RDONLY);
 	if (fd < 0)
 		return (print("aucune map avec ce nom n'as ete trouve :()"));
-		
-	if (so_long_parsing(fd) == 0)
+	if (so_long_parsing(&fd) == 0)
 		return (print("la map est mal configurer >:()"));
-
 	close(fd);
 	return (0);
 }

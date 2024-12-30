@@ -6,7 +6,7 @@
 /*   By: asaracut <asaracut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 00:54:58 by asaracut          #+#    #+#             */
-/*   Updated: 2024/12/29 07:52:04 by asaracut         ###   ########.fr       */
+/*   Updated: 2024/12/30 05:11:12 by asaracut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ int		print(char *s);
 size_t	ft_strlen(const char *str);
 
 /*          parsing         */
-int	so_long_parsing(int	fd);
+int	so_long_parsing(int	*fd);
 
 #endif
