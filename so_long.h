@@ -6,7 +6,7 @@
 /*   By: asaracut <asaracut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 00:54:58 by asaracut          #+#    #+#             */
-/*   Updated: 2024/12/30 05:11:12 by asaracut         ###   ########.fr       */
+/*   Updated: 2025/01/04 09:09:36 by asaracut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,24 @@
 # include <fcntl.h>
 # include <stddef.h>
 
+typedef struct {
+	char	**map;
+    int		x;
+	int		y;
+	
+    int 	collect;
+    int 	player;
+    int 	exit;
+	
+    int 	score;
+} Info;
+
 /*          utils         */
 char	*get_next_line(int fd);
 int		print(char *s);
 size_t	ft_strlen(const char *str);
 
 /*          parsing         */
-int	so_long_parsing(int	*fd);
-
+int	so_long_parsing(int	fd, Info *info);
+// visobod505@pofmagic.com QWERTY123ss@
 #endif

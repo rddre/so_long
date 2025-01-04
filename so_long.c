@@ -6,7 +6,7 @@
 /*   By: asaracut <asaracut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 00:54:55 by asaracut          #+#    #+#             */
-/*   Updated: 2024/12/30 06:10:36 by asaracut         ###   ########.fr       */
+/*   Updated: 2025/01/04 16:37:57 by asaracut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,16 @@ int	main(int nbmap, char **map)
 {
 	int		fd;
 	
+	Info info = {0};
 	if (nbmap != 2)
-		return (print("il faut UNE map :)"));
+		return (print("Erreur : il faut UNE map :)"));
 	if (verifi_extension(map[1]) == 0)
-		return (print("l'extension *.ber n'est pas respecte :-)"));
+		return (print("Erreur : l'extension *.ber n'est pas respecte :-)"));
 	fd = open(map[1], O_RDONLY);
 	if (fd < 0)
-		return (print("aucune map avec ce nom n'as ete trouve :()"));
-	if (so_long_parsing(&fd) == 0)
-		return (print("la map est mal configurer >:()"));
+		return (print("Erreur : aucune map avec ce nom n'as ete trouve :()"));
+	if (so_long_parsing(fd, &info) == 0)
+		return (print("Erreur : la map est mal configurer >:()"));
 	close(fd);
 	return (0);
 }

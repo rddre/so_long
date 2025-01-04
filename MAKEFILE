@@ -1,7 +1,7 @@
 NAME = so_long
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-SRCS = so_long.c so_long_parsing.c utils.c\
+SRCS = so_long.c so_long_parsing.c utils.c so_long_back_traking.c\
        get_next_line/get_next_line.c get_next_line/get_next_line_utils.c
 OBJS = $(SRCS:.c=.o)
 
