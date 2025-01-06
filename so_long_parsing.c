@@ -6,7 +6,7 @@
 /*   By: asaracut <asaracut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 00:54:47 by asaracut          #+#    #+#             */
-/*   Updated: 2025/01/04 17:10:26 by asaracut         ###   ########.fr       */
+/*   Updated: 2025/01/06 03:27:11 by asaracut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int	check_cube(Info *info, char	*line)
 
 int	so_long_parsing(int	fd, Info *info)
 {
-	info->map = malloc(sizeof(char *) * 100);
+	info->map = malloc(sizeof(char *) * 200);
 		if (!info->map)
 				return (0);
 	info->y = 0;
