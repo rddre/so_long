@@ -6,7 +6,7 @@
 /*   By: asaracut <asaracut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 00:54:47 by asaracut          #+#    #+#             */
-/*   Updated: 2025/01/06 03:27:11 by asaracut         ###   ########.fr       */
+/*   Updated: 2025/01/08 10:49:03 by asaracut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,25 @@ void	check_conform(Info *info)
 	}
 }
 
-void	add_stat(char c, Info *info)
+void	add_stat(char c, Info *info, int x, int y)
 {
 	if (c == 'P')
+	{
 		info->player++;
+		info->player_x = x;
+		info->player_y = y;
+	}
 	if (c == 'E')
+	{
 		info->exit++;
+		info->exit_x = x;
+		info->exit_y = y;
+	}
 	if (c == 'C')
 		info->collect++;
 	if (info->player > 1)
 	{
-		print("Erreur : trop de joueur sur la map. :[]\n"); //a chqnger !=
+		print("Erreur : trop de joueur sur la map. :[]\n");
 		exit(1);
 	}
 	if (info->exit > 1)
@@ -69,12 +77,12 @@ int	check_cube(Info *info, char	*line)
 	while (line[i])
 	{
 		if (line[i] != '0' && line[i] != '1' && line[i] != 'E'
-			&& line[i] != 'C' && line[i] != 'P' && line[i] != '\n')
+			&& line[i] != 'C' && line[i] != 'P')
 		{
 			print("Erreur : caractère invalide trouvé. >:|\n");
 			exit(1);
 		}
-		add_stat(line[i], info);
+		add_stat(line[i], info, i, info->y);
 		i++;
 	}
 	if (i != info->x)
@@ -97,33 +105,17 @@ int	so_long_parsing(int	fd, Info *info)
 		check_cube(info, info->map[info->y]);
 	}
 	info->map[info->y] = NULL;
-	if (info->y < 3 || info->x < 3)
-		return (0);
+	if (info->x > 500 || info->y > 200)
+	{
+		print("Erreur : la map est trop grande");
+		exit(1);
+	}
+	if (info->player < 1 || info->exit < 1 || info->collect > 0)
+	{
+		print("Erreur : il y a pas de jour ou de sortie sur la map :(");
+		exit(1);
+	}
 	check_conform(info);
 	back_traking(info);
 	return (1);
 }
-
-/*               pour afficher la map
------------------------------------------------------------
-#include <stdio.h> // a retirer apres le test
-void	print_map(char **map) 
-{
-		int i = 0;
-		
-		// Parcours chaque ligne de la map
-		while (map[i])
-		{
-				// Parcours chaque caractère de la ligne
-				int j = 0;
-				while (map[i][j])  
-				{
-						// Affichage des caractères normalement
-						printf("%c", map[i][j]);
-						j++;
-				}
-				printf("\n");  // Nouvelle ligne après chaque ligne de la map
-				i++;
-		}
-}
-*/
