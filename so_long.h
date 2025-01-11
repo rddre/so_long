@@ -6,7 +6,7 @@
 /*   By: asaracut <asaracut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 00:54:58 by asaracut          #+#    #+#             */
-/*   Updated: 2025/01/08 10:22:51 by asaracut         ###   ########.fr       */
+/*   Updated: 2025/01/11 21:44:50 by asaracut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <stddef.h>
-# include "mlx.h"
+# include "mlx/mlx.h"
 
 typedef struct {
 	char	**map;
