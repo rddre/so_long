@@ -6,7 +6,7 @@
 /*   By: asaracut <asaracut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 00:54:55 by asaracut          #+#    #+#             */
-/*   Updated: 2025/01/11 21:54:06 by asaracut         ###   ########.fr       */
+/*   Updated: 2025/01/21 22:01:39 by asaracut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,6 @@ int	main(int nbmap, char **map)
 	if (so_long_parsing(fd, &info) == 0)
 		return (print("Erreur : la map est mal configurer >:()"));
 	close(fd);
+	game_display(&info);
 	return (0);
 }

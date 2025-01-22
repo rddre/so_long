@@ -6,7 +6,7 @@
 /*   By: asaracut <asaracut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 00:54:58 by asaracut          #+#    #+#             */
-/*   Updated: 2025/01/11 21:44:50 by asaracut         ###   ########.fr       */
+/*   Updated: 2025/01/22 00:30:18 by asaracut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <stddef.h>
-# include "mlx/mlx.h"
+# include "minilibx-linux/mlx.h"
 
 typedef struct {
 	char	**map;
@@ -41,16 +41,25 @@ typedef struct {
     int     player_y;
     int     exit_x;
     int     exit_y;
+
+    void    *mlx;
+    void    *display;
+
 } Info;
 
-/*          utils         */
+/*             utils              */
 char	*get_next_line(int fd);
 int		print(char *s);
 size_t	ft_strlen(const char *str);
 char	*ft_strdup(const char	*src);
+void    free_map_exit(Info *info);
 
-/*          parsing         */
+/*            parsing             */
 int 	so_long_parsing(int	fd, Info *info);
 void	back_traking(Info *info);
+
+/*            affichage           */
+void	game_display(Info *info);
+
 // visobod505@pofmagic.com QWERTY123ss@
 #endif

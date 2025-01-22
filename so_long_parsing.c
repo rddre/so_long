@@ -6,7 +6,7 @@
 /*   By: asaracut <asaracut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 00:54:47 by asaracut          #+#    #+#             */
-/*   Updated: 2025/01/08 11:02:08 by asaracut         ###   ########.fr       */
+/*   Updated: 2025/01/21 21:55:34 by asaracut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ int	so_long_parsing(int	fd, Info *info)
 	}
 	if (info->player < 1 || info->exit < 1 || info->collect < 1)
 	{
-		print("Erreur : il y a pas de jour ou de sortie sur la map :(");
+		print("Erreur : il y a pas de joueur ou de sortie sur la map :(");
 		exit(1);
 	}
 	check_conform(info);
