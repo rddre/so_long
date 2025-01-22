@@ -6,29 +6,35 @@
 /*   By: asaracut <asaracut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 00:54:55 by asaracut          #+#    #+#             */
-/*   Updated: 2025/01/21 22:01:39 by asaracut         ###   ########.fr       */
+/*   Updated: 2025/01/22 04:40:53 by asaracut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+void	before_play(Info *info)
+{
+	info->collect_trouve = 0;
+	info->map_final[info->exit_y][info->exit_x] = '0';
+}
+
 int	verifi_extension(char *s)
 {
-	int i;
+	int	i;
 
 	i = ft_strlen(s);
 	if (i < 5)
 		return (0);
-	if (s[i - 1] != 'r' || s[i - 2] != 'e' ||
-		 s[i - 3] != 'b' || s[i - 4] != '.')
-        return (0);
+	if (s[i - 1] != 'r' || s[i - 2] != 'e'
+		|| s[i - 3] != 'b' || s[i - 4] != '.')
+		return (0);
 	return (1);
 }
 
 int	main(int nbmap, char **map)
 {
 	int		fd;
-	
+
 	Info info = {0};
 	if (nbmap != 2)
 		return (print("Erreur : il faut UNE map :)"));
@@ -40,6 +46,7 @@ int	main(int nbmap, char **map)
 	if (so_long_parsing(fd, &info) == 0)
 		return (print("Erreur : la map est mal configurer >:()"));
 	close(fd);
+	before_play(&info);
 	game_display(&info);
 	return (0);
 }

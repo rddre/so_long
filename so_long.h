@@ -6,7 +6,7 @@
 /*   By: asaracut <asaracut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 00:54:58 by asaracut          #+#    #+#             */
-/*   Updated: 2025/01/22 00:30:18 by asaracut         ###   ########.fr       */
+/*   Updated: 2025/01/22 04:41:09 by asaracut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,11 @@ typedef struct {
     void    *mlx;
     void    *display;
 
+    void    *wall_img;
+    void    *floor_img;
+    void    *collectible_img;
+    void    *exit_img;
+    void    *player_img;
 } Info;
 
 /*             utils              */
@@ -53,6 +58,7 @@ int		print(char *s);
 size_t	ft_strlen(const char *str);
 char	*ft_strdup(const char	*src);
 void    free_map_exit(Info *info);
+void    free_images(Info *info);
 
 /*            parsing             */
 int 	so_long_parsing(int	fd, Info *info);
@@ -60,6 +66,4 @@ void	back_traking(Info *info);
 
 /*            affichage           */
 void	game_display(Info *info);
-
-// visobod505@pofmagic.com QWERTY123ss@
 #endif
