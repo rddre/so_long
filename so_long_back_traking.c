@@ -6,15 +6,15 @@
 /*   By: asaracut <asaracut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 16:42:21 by asaracut          #+#    #+#             */
-/*   Updated: 2025/01/22 04:29:35 by asaracut         ###   ########.fr       */
+/*   Updated: 2025/01/25 02:29:05 by asaracut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void copy_map(Info *info)
+void	copy_map(Info *info)
 {
-	int i;
+	int	i;
 
 	info->map_final = (char **)malloc(sizeof(char *) * (info->y + 1));
 	if (!info->map_final)
@@ -49,9 +49,7 @@ int	backtracking(Info *info, int x, int y)
 		info->exit_trouve++;
 	if (info->map[y][x] == 'C')
 		info->collect_trouve++;
-		
 	info->map[y][x] = '1';
-
 	if (is_valid_move(info, x + 1, y))
 		backtracking(info, x + 1, y);
 	if (is_valid_move(info, x - 1, y))
@@ -60,7 +58,6 @@ int	backtracking(Info *info, int x, int y)
 		backtracking(info, x, y + 1);
 	if (is_valid_move(info, x, y - 1))
 		backtracking(info, x, y - 1);
-
 	return (1);
 }
 

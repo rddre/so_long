@@ -6,12 +6,11 @@
 /*   By: asaracut <asaracut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 00:54:47 by asaracut          #+#    #+#             */
-/*   Updated: 2025/01/22 04:29:23 by asaracut         ###   ########.fr       */
+/*   Updated: 2025/02/03 14:00:24 by asaracut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
 
 void	check_conform(Info *info)
 {
@@ -23,7 +22,7 @@ void	check_conform(Info *info)
 		if (info->map[0][i] != '1' || info->map[info->y - 1][i] != '1')
 		{
 			print("Erreur : il faut des 1 tout au tour >:{\n");
-			free_map_exit(info);	
+			free_map_exit(info);
 		}
 		i++;
 	}
@@ -69,7 +68,7 @@ void	add_stat(char c, Info *info, int x, int y)
 
 int	check_cube(Info *info, char	*line)
 {
-	int i;
+	int	i;
 
 	if (info->y == 0)
 		info->x = ft_strlen(line);
@@ -94,11 +93,11 @@ int	check_cube(Info *info, char	*line)
 	return (1);
 }
 
-int	so_long_parsing(int	fd, Info *info)
+int	so_long_parsing(int fd, Info *info)
 {
 	info->map = malloc(sizeof(char *) * 200);
-		if (!info->map)
-				return (0);
+	if (!info->map)
+		return (0);
 	info->y = 0;
 	while ((info->map[info->y] = get_next_line(fd)))
 	{

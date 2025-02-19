@@ -6,7 +6,7 @@
 /*   By: asaracut <asaracut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 06:25:26 by asaracut          #+#    #+#             */
-/*   Updated: 2025/01/22 04:41:01 by asaracut         ###   ########.fr       */
+/*   Updated: 2025/02/19 01:50:45 by asaracut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,12 @@ void	free_images(Info *info)
 		mlx_destroy_image(info->mlx, info->exit_img);
 	if (info->player_img)
 		mlx_destroy_image(info->mlx, info->player_img);
+}
+
+void last_free(Info *info)
+{
+	if (info->display)
+		mlx_destroy_window(info->mlx, info->display);
+	mlx_destroy_display(info->mlx);
+	free(info->mlx);
 }
