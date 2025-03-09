@@ -6,7 +6,7 @@
 /*   By: asaracut <asaracut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 06:25:26 by asaracut          #+#    #+#             */
-/*   Updated: 2025/02/19 01:55:48 by asaracut         ###   ########.fr       */
+/*   Updated: 2025/03/09 21:09:19 by asaracut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ void	game_display(Info *info)
 	info->mlx = mlx_init();
 	info->display = mlx_new_window(info->mlx, info->x * 50, info->y * 50, "so_long");
 	render_map(info->mlx, info->display, info->map_final, info);
-	mlx_hook(info->display, 17, 0, handle_close, NULL);
+	mlx_hook(info->display, 17, 0, handle_close, info);
 	mlx_key_hook(info->display, handle_keypress, info);
 	mlx_loop(info->mlx);
 }
