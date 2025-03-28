@@ -6,7 +6,7 @@
 /*   By: asaracut <asaracut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 06:25:26 by asaracut          #+#    #+#             */
-/*   Updated: 2025/03/09 21:09:19 by asaracut         ###   ########.fr       */
+/*   Updated: 2025/03/28 01:26:03 by asaracut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,11 @@ void	render_map(void *mlx, void *win, char **map, Info *info)
 	x = 0;
 	y = 0;
 	free_images(info);
-	info->wall_img = mlx_xpm_file_to_image(mlx,
-			"img/wall.xpm", &img_width, &img_height);
-	info->floor_img = mlx_xpm_file_to_image(mlx,
-			"img/floor.xpm", &img_width, &img_height);
-	info->collectible_img = mlx_xpm_file_to_image(mlx,
-			"img/collectible.xpm", &img_width, &img_height);
-	info->exit_img = mlx_xpm_file_to_image(mlx,
-			"img/exit.xpm", &img_width, &img_height);
-	info->player_img = mlx_xpm_file_to_image(mlx,
-			"img/player.xpm", &img_width, &img_height);
+	info->wall_img = mlx_xpm_file_to_image(mlx, "img/wall.xpm", &img_width, &img_height);
+	info->floor_img = mlx_xpm_file_to_image(mlx,"img/floor.xpm", &img_width, &img_height);
+	info->collectible_img = mlx_xpm_file_to_image(mlx,"img/collectible.xpm", &img_width, &img_height);
+	info->exit_img = mlx_xpm_file_to_image(mlx,"img/exit.xpm", &img_width, &img_height);
+	info->player_img = mlx_xpm_file_to_image(mlx,"img/player.xpm", &img_width, &img_height);
 	while (map[y] != NULL)
 	{
 		x = 0;
